@@ -107,8 +107,7 @@ else
         --query 4 \
         --mode train \
         --embedding ebdnew \
-        --classifier proto \
-        --induct_hidden_dim 50 \
+        --classifier mbc \
         --dataset=$dataset \
         --data_path=$data_path \
         --n_train_class=$n_train_class \
@@ -125,7 +124,7 @@ else
         --que_feature cls \
         --lr 2e-5 \
         --seed 330 \
-        --addCtagSup none \
+        --addCtagSup one \
         --addCtagQue none \
         --notqdm
 fi
