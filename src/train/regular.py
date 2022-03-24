@@ -72,15 +72,15 @@ def train(train_data, val_data, model, args):
             train_one(task, model, opt, args, grad, train_loss)
             
         ## monitor train acc
-        # if ep % 5 == 0:
-        #     acc, std = test(train_data, model, args, args.val_episodes, False,
-        #                     train_gen_val.get_epoch())
-        #     print("{}, {:s} {:2d}, {:s} {:s}{:>7.4f} ± {:>6.4f}".format(
-        #         datetime.datetime.now().strftime('%02y/%02m/%02d %H:%M:%S'),
-        #         "ep", ep,
-        #         "train",
-        #         "acc:", acc, std,
-        #         ), flush=True)
+        if ep % 5 == 0:
+            acc, std = test(train_data, model, args, args.val_episodes, False,
+                            train_gen_val.get_epoch())
+            print("{}, {:s} {:2d}, {:s} {:s}{:>7.4f} ± {:>6.4f}".format(
+                datetime.datetime.now().strftime('%02y/%02m/%02d %H:%M:%S'),
+                "ep", ep,
+                "train",
+                "acc:", acc, std,
+                ), flush=True)
         # Evaluate validation accuracy
 
         cur_acc, cur_std = test(val_data, model, args, args.val_episodes, False,
